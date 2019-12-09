@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS  -->
+    <link rel="icon" href="{{ url_for('static', filename='assets/images/background/fclogo.jpg') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <title>Forex-Comix</title>
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <div class="navbar-fixed">
+        <nav class="cyan" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="{{ url_for('index') }}" class="brand-logo">
+                FC
+                </a>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('learner') }}">Learner</a></li>
+                    <li><a href="{{ url_for('bookseller') }}">Bookseller</a></li>
+                    <li><a href="{{ url_for('school') }}">School</a></li>
+                    <li><a href="{{ url_for('database') }}">Database</a></li>
+                    <li><a href="{{ url_for('addcomic') }}">Add Comic</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul id="nav-mobile" class="sidenav">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('learner') }}">Learner</a></li>
+        <li><a href="{{ url_for('bookseller') }}">Bookseller</a></li>
+        <li><a href="{{ url_for('school') }}">School</a></li>
+        <li><a href="{{ url_for('database') }}">Database</a></li>
+        <li><a href="{{ url_for('addcomic') }}">Add Comic</a></li>
+    </ul>
+
+
+    <!--Page Header-->
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h2 class="header center cyan-text text-lighten-2">Forex-Comix</h2>
+                <div class="row center">
+                    <h5 class="header col s12 light">New and used foreign comics for language exchange</h5>
+                </div>
+                <div class="row center">
+                    <a href="{{ url_for('database') }}" class="btn-large waves-effect waves-light cyan lighten-1">Search Database</a>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <div class="parallax"><img src="{{url_for('static', filename='assets/images/thewalkingdead.jpg')}}" alt="comic-image" type="image">
+        </div>
+    </div>
+
+
+    <!--Main Container-->
+
+    <div class="container-fluid">
+
+        {% block content %} {% endblock %}
+
+    </div>
+
+    <!--Footer-->
+
+    <footer class="page-footer cyan">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="white-text">What is this?</h5>
+                    <p class="grey-text text-lighten-4">This is a project for the Code Institute which demonstrates knowledge of HTML | Python | Flask | Django | CSS et al!</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="https://github.com/AidanJReid">Aidan J. Reid</a>
+                <a class="grey-text text-lighten-4 right" href="https://www.facebook.com/">Get Social With Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+     <!--Script tag for jQuery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+     <!--Script tag for Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <!--Script tag for custom JS file-->
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+
+</body>
+
+</html>
