@@ -66,90 +66,33 @@ def insert_comic():
 
 # Comic Database Section
 
-@app.route('/database', methods=['GET'])
+@app.route('/database', methods=['GET', 'POST'])
 def database():
-    """
-    Retrieves all comics and displays on database comic page
-    """
-    return render_template('database.html', DBComix=mongo.db.DBComix.find(),
-    page_title='Database')
-
-# Filter section of Database (search)
-
-@app.route('/filter_comic', methods=['GET', 'POST'])
-def filter_comic():
+    genres=mongo.db.genre.find()
+    languages=mongo.db.Languages.find()
+    # This is true if form has been submitted.
     if request.method == 'POST':
+        # Get restrictions provided by user through the form
+        # These are in the form of a MultiDict. Convert to normal dictionary.
         filter_restrictions = request.args.to_dict()
+        # Sending MongoDB only the restrictions that the user has supplied.
         non_empty_restrictions = dict()
         for restriction_key, restriction_value in filter_restrictions.items():
-            if restriction_value:
+            if restriction_value != '':
                 non_empty_restrictions['restriction_key'] = restriction_value
-                
-        if len(non_empty_restrictions) > 0:
-            comics = mongo.db.DBComix.find(non_empty_restrictions)
-            
-        else:
-            comics = mongo.db.DBComix.find()
+        # If at least one restriction was supplied, pass onto Mongo
+        comics = mongo.db.DBComix.find(non_empty_restrictions)
+    
+    # Handle Get request
     else:
+        #Get all comics from Mongo
         comics = mongo.db.DBComix.find()
     
-    return render_template('filter_comics.html', comics=comics)
-    
-    # filter_comic = mongo.db.DBComix.find({'_id': ObjectId(DBComix_id)})
-    # all_languages = mongo.db.Languages.find() 
-    # all_genres = mongo.db.genre.find()
-    # all_difficulty = mongo.db.difficulty.find()
-    # all_condition = mongo.db.condition.find()
-    # all_description = mongo.db.description.find()
-    # return render_template('editcomic.html',
-    #         comic=filter_comic, 
-    #         languages=all_languages, 
-    #         genres=all_genres)
-    
-    
-    
-    # filter_comic = mongo.db.DBcomix.find({"language": language, "genre": genre})
-    # return render_template('filter_comics.html')
-    # language=list(mongo.db.Languages.find()),
-    # genre=mongo.db.genre.find()
-    
-    # PLAN B - Other user code - Get filtered comics and display 
-    # summary details in cards
-    
-    # Get user's submission from filter form and put into a dictionary
-    # FILTERED RESULTS WITH NO SEARCH
-    
-    # Build the filter query
-    # Message if user doesn't select any filters before submitting form
-    #     if len(form_input) == 0:
-    #         flash("You haven't applied any filter options. \
-    #                 Please choose a language or genre to filter.")
-    #         return redirect(url_for('database')) 
-                
-    #     # Filter query if one option is selected from the form
-    #     elif len(form_input) == 1:
-    #         for k, v in form_input.items():
-    #             cat_one = 'comic.' + k
-    #             val_one = v()
-    
-    #     # Only include comic with "deleted" value of False
-    #             filter_query = ({'$and': [{cat_one: val_one}]})
-    
-    #     # Filter query if two options are selected from the form
-    #     elif len(form_input) == 2:
-    #         if 'language' in form_input and 'genre' in form_input:
-    #             cat_one = 'comic.language'
-    #             val_one = str(form_input['language'])
-    #             cat_two = 'comic.genre'
-    #             val_two = str(form_input['genre'])
-    #         else:
-    #             cat_one = 'comic.language'
-    #             val_one = str(form_input['language'])
-    #             cat_two = 'comic.genre'
-    #             val_two = str(form_input['genre'])
-    # else:
-    #     return redirect(url_for('database'))     
-    
+    return render_template('database.html',
+    DBComix=comics,
+    genres=genres,
+    languages=languages,
+    page_title='Database')
     
 # Specific Comic View
 
@@ -182,9 +125,9 @@ def edit_comic(DBComix_id):
             comic=the_comic, 
             languages=all_languages, 
             genres=all_genres, 
-            difficulty = all_difficulty, 
-            condition = all_condition, 
-            description = all_description, 
+            difficulty=all_difficulty, 
+            condition=all_condition, 
+            description=all_description, 
         page_title='Edit Comic')
         
 # Update Comic / Insert Section
