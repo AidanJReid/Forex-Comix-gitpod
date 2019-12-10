@@ -80,10 +80,10 @@ def database():
         for restriction_key, restriction_value in filter_restrictions.items():
             if restriction_value != '':
                 non_empty_restrictions['restriction_key'] = restriction_value
-        # If at least one restriction was supplied, pass onto Mongo
+        # If at least one restriction was supplied, pass onto Mongo       
         comics = mongo.db.DBComix.find(non_empty_restrictions)
     
-    # Handle Get request
+    # Handle Get request        
     else:
         #Get all comics from Mongo
         comics = mongo.db.DBComix.find()
