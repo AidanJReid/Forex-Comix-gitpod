@@ -7,44 +7,37 @@
 		filter toggle.</p>
 	<div class="row">
 		<div class="col s12">
-			<ul class="collapsible">
-				<li>
-					<div class="collapsible-header"><i class="material-icons">arrow_drop_down</i>Comic Get 'Em</div>
-					<div class="collapsible-body">
-						<form action = "{{ url_for('database')}}" id="filter_form" method="POST">
-							<div class="row">
-								<div class="input-field col s12 m6">
-									<i class="material-icons prefix">language</i>
-									<select id="filter_language" name="filter_language">
+			<form action="{{ url_for('database')}}" id="filter_form" method="POST">
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<i class="material-icons prefix">language</i>
+						<select id="filter_language" name="filter_language">
                                     <option value="" disabled selected>Comic Language</option>
                                     <!--Pass through languages prompting a selection from the drop down menu-->
                                     {% for language in languages %}
                                         <option value="{{ language.language }}">{{ language.language }}</option>
                                     {% endfor %}
                                 </select>
-									<label for="filter_language">Language</label>
-								</div>
-								<div class="input-field col s12 m6">
-									<i class="material-icons prefix">palette</i>
-									<select id="filter_genre" name="filter_genre" class="form-control validate">
+						<label for="filter_language">Language</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<i class="material-icons prefix">palette</i>
+						<select id="filter_genre" name="filter_genre" class="form-control validate">
                                         <option value="" disabled selected>Filter Genre</option>
                                         <!--Pass through genres prompting a selection from the drop down menu-->
                                         {% for genre in genres %}
                                         <option value="{{ genre.genre }}">{{ genre.genre }}</option>
                                     {% endfor %}
                                     </select>
-									<label for="genre">Genre</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col s12 center-align">
-									<button class="btn-large waves-effect waves-light" type='submit'>Find Comic</button>
-								</div>
-							</div>
-						</form>
+						<label for="genre">Genre</label>
 					</div>
-				</li>
-			</ul>
+				</div>
+				<div class="row">
+					<div class="col s12 center-align">
+						<button class="btn-large waves-effect waves-light" type='submit'>Find Comic</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

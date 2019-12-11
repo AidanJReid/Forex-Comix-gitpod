@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS  -->
     <link rel="icon" href="{{ url_for('static', filename='assets/images/background/fclogo.jpg') }}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
     <title>Forex-Comix</title>
 </head>
 
@@ -43,6 +43,15 @@
         <li><a href="{{ url_for('database') }}">Database</a></li>
         <li><a href="{{ url_for('addcomic') }}">Add Comic</a></li>
     </ul>
+
+    <!--Flashed messages to appear at the top of the viewport, below the nav-->
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes center-align">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
 
 
     <!--Page Header-->

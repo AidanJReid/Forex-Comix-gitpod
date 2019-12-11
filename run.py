@@ -1,11 +1,11 @@
 import os
 
-from flask import Flask, render_template, request, url_for, \
-    redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, flash, Markup
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24) #Creates a random string to use as session key
 
 # MongoDB URI / Assign Database
 
@@ -74,18 +74,27 @@ def database():
     if request.method == "POST":
         # Get restrictions provided by user through the form
         # These are in the form of a MultiDict. Convert to normal dictionary.
-        filter_restrictions = request.form.to_dict()
-        print(filter_restrictions)
-        # Sending MongoDB only the restrictions that the user has supplied.
-        non_empty_restrictions = dict()
-        for restriction_key, restriction_value in filter_restrictions.items():
-            print(restriction_key, restriction_value)
-            if restriction_value != '':
-                non_empty_restrictions['restriction_key'] = restriction_value
-        # If at least one restriction was supplied, pass onto Mongo 
-        print(non_empty_restrictions)
+        form = request.form.to_dict()
+        print(form)
+        if len(form) == 0:
+            print("Bananas")
+            flash(Markup("You haven't selected any filter option."))
+            return redirect(url_for('database'))
 
-        comics = mongo.db.DBComix.find(non_empty_restrictions)
+        else:
+            return redirect(url_for('database'))
+
+
+        # # Sending MongoDB only the restrictions that the user has supplied.
+        # non_empty_restrictions = dict()
+        # for restriction_key, restriction_value in filter_restrictions.items():
+        #     print(restriction_key, restriction_value)
+        #     if restriction_value != '':
+        #         non_empty_restrictions['restriction_key'] = restriction_value
+        # # If at least one restriction was supplied, pass onto Mongo 
+        # print(non_empty_restrictions)
+
+        # comics = mongo.db.DBComix.find(non_empty_restrictions)
     
     else:
         comics = mongo.db.DBComix.find()
