@@ -15,14 +15,14 @@
 							<div class="row">
 								<div class="input-field col s12 m6">
 									<i class="material-icons prefix">language</i>
-									<select id="language" name="language">
+									<select id="filter_language" name="filter_language">
                                     <option value="" disabled selected>Comic Language</option>
                                     <!--Pass through languages prompting a selection from the drop down menu-->
                                     {% for language in languages %}
                                         <option value="{{ language.language }}">{{ language.language }}</option>
                                     {% endfor %}
                                 </select>
-									<label for="language">Language</label>
+									<label for="filter_language">Language</label>
 								</div>
 								<div class="input-field col s12 m6">
 									<i class="material-icons prefix">palette</i>
@@ -37,11 +37,8 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col s12 m6 center-align">
+								<div class="col s12 center-align">
 									<button class="btn-large waves-effect waves-light" type='submit'>Find Comic</button>
-								</div>
-								<div class="col s12 m6 center-align">
-									<button class="waves-effect waves-light btn-large indigo" type="submit">Reset Search</button>
 								</div>
 							</div>
 						</form>
