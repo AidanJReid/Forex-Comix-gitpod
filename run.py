@@ -71,7 +71,7 @@ def database():
     genres=mongo.db.genre.find()
     languages=mongo.db.Languages.find()
     # This is true if form has been submitted.
-    if request.method == 'POST':
+    if request.method == "POST":
         # Get restrictions provided by user through the form
         # These are in the form of a MultiDict. Convert to normal dictionary.
         filter_restrictions = request.args.to_dict()
