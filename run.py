@@ -74,18 +74,20 @@ def database():
     if request.method == "POST":
         # Get restrictions provided by user through the form
         # These are in the form of a MultiDict. Convert to normal dictionary.
-        filter_restrictions = request.args.to_dict()
+        filter_restrictions = request.form.to_dict()
+        print(filter_restrictions)
         # Sending MongoDB only the restrictions that the user has supplied.
         non_empty_restrictions = dict()
         for restriction_key, restriction_value in filter_restrictions.items():
+            print(restriction_key, restriction_value)
             if restriction_value != '':
                 non_empty_restrictions['restriction_key'] = restriction_value
-        # If at least one restriction was supplied, pass onto Mongo       
+        # If at least one restriction was supplied, pass onto Mongo 
+        print(non_empty_restrictions)
+
         comics = mongo.db.DBComix.find(non_empty_restrictions)
     
-    # Handle Get request        
     else:
-        #Get all comics from Mongo
         comics = mongo.db.DBComix.find()
     
     return render_template('database.html',
