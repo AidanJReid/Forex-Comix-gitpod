@@ -20,8 +20,8 @@
     <div class="navbar-fixed">
         <nav class="cyan" role="navigation">
             <div class="nav-wrapper container">
-                <a href="{{ url_for('index') }}" class="brand-logo">
-                FC
+                <a href="{{ url_for('index') }}" class="brand-logo" aria-label="Brand Logo and Home Page">
+                    <img src="{{ url_for('static', filename='assets/images/background/brand-logo.png') }}" alt="Forex Comix">
                 </a>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">

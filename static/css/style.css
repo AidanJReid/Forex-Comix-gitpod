@@ -10,9 +10,16 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Navbar */
+
 nav ul a,
 nav .brand-logo {
   color: #444;
+}
+
+.nav-wrapper .brand-logo img {
+    height: 48px;
+    margin-top: 5px;
 }
 
 p {
