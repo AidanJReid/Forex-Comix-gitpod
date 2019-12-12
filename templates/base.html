@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS  -->
-    <link rel="icon" href="{{ url_for('static', filename='assets/images/background/fclogo.jpg') }}">
+    <link rel="icon" href="{{ url_for('static', filename='assets/images/background/fav.png') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>Forex-Comix</title>
 </head>
 
@@ -44,25 +45,15 @@
         <li><a href="{{ url_for('addcomic') }}">Add Comic</a></li>
     </ul>
 
-    <!--Flashed messages to appear at the top of the viewport, below the nav-->
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul class="flashes center-align">
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %} {% endwith %}
-
-
     <!--Page Header-->
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container">
                 <br><br>
-                <h2 class="header center cyan-text text-lighten-2">Forex-Comix</h2>
+                <h2 class="header center cyan-text">FOREX-COMIX</h2>
                 <div class="row center">
-                    <h5 class="header col s12 light">New and used foreign comics for language exchange</h5>
+                    <h5 class="header col l12 light">New and used foreign comics for language exchange</h5>
                 </div>
                 <div class="row center">
                     <a href="{{ url_for('database') }}" class="btn-large waves-effect waves-light cyan lighten-1">Search Database</a>

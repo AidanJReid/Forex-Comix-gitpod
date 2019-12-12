@@ -57,8 +57,8 @@
                         <select id="difficulty" name="difficulty">
                                     <option value="" disabled selected>Language Difficulty</option>
                                      {% for difficulty in difficulty %}
-                                        {% if difficulty.difficulty == difficulty.difficulty %}
-                                        <option value="{{ difficulty.difficulty }}" selected >{{ difficulty.difficulty }}</option>
+                                        {% if comic.difficulty == difficulty.difficulty %}
+                                        <option value="{{ comic.difficulty }}" selected >{{ comic.difficulty }}</option>
                                         {% else %}
                                         <option value="{{ difficulty.difficulty }}">{{ difficulty.difficulty }}</option>
                                         {% endif %}
@@ -78,8 +78,8 @@
                         <select id="condition" name="condition">
                                     <option value="" disabled selected>Choose Condition</option>
                                     {% for condition in condition %}
-                                        {% if condition.condition == condition.condition %}
-                                        <option value="{{ condition.condition }}" selected >{{ condition.condition }}</option>
+                                        {% if comic.condition == condition.condition %}
+                                        <option value="{{ comic.condition }}" selected >{{ comic.condition }}</option>
                                         {% else %}
                                         <option value="{{ condition.condition }}">{{ condition.condition }}</option>
                                         {% endif %}

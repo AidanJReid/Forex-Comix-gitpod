@@ -70,31 +70,31 @@ def insert_comic():
 def database():
     genres=mongo.db.genre.find()
     languages=mongo.db.Languages.find()
+    conditions=mongo.db.condition.find()
+    difficultys=mongo.db.difficulty.find()
     # This is true if form has been submitted.
     if request.method == "POST":
         # Get restrictions provided by user through the form
         # These are in the form of a MultiDict. Convert to normal dictionary.
-        form = request.form.to_dict()
-        print(form)
-        if len(form) == 0:
-            print("Bananas")
-            flash(Markup("You haven't selected any filter option."))
+        filter_restrictions = request.form.to_dict()
+        non_empty_restrictions = dict()
+        if len(filter_restrictions) == 0:
+            print("0 values filled in")
+            flash(Markup("D'Oh! You didn't select a filter option."))
             return redirect(url_for('database'))
 
-        else:
-            return redirect(url_for('database'))
-
-
-        # # Sending MongoDB only the restrictions that the user has supplied.
-        # non_empty_restrictions = dict()
-        # for restriction_key, restriction_value in filter_restrictions.items():
-        #     print(restriction_key, restriction_value)
-        #     if restriction_value != '':
-        #         non_empty_restrictions['restriction_key'] = restriction_value
-        # # If at least one restriction was supplied, pass onto Mongo 
-        # print(non_empty_restrictions)
-
-        # comics = mongo.db.DBComix.find(non_empty_restrictions)
+        if len(filter_restrictions) != 0:
+            for restriction_key, restriction_value in filter_restrictions.items():
+                non_empty_restrictions[restriction_key] = restriction_value
+            comics = mongo.db.DBComix.find(non_empty_restrictions)
+            print("Filter(s) applied", restriction_key, restriction_value, non_empty_restrictions)
+            return render_template('database.html',
+            DBComix=comics,
+            genres=genres,
+            languages=languages,
+            difficultys=difficultys,
+            conditions=conditions,
+            page_title='Database')
     
     else:
         comics = mongo.db.DBComix.find()
@@ -103,6 +103,8 @@ def database():
     DBComix=comics,
     genres=genres,
     languages=languages,
+    difficultys=difficultys,
+    conditions=conditions,
     page_title='Database')
     
 # Specific Comic View
