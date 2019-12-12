@@ -112,6 +112,9 @@ Their choice is of course dependent on their user profile and interest.
 ##### Modal
 - Displayed with the request for deletion of comic on the comic page.
 
+##### Toast
+- Materialize popup notification which I've used in the Learner section to reveal comic meetups.
+
 #### Footer
 - Used Parallax theme footer and simply indicated purpose of site, share my Github and linking to Facebook.
 
@@ -137,13 +140,9 @@ I have a strong desire to fully flesh out this micro-site to become a business.
 To that end, there will need to be many more features to reward and ensure the customer journey and exchange is seamless.
 
 **Pagination**
-I've purposely kept the database small to dsiplay my prowess in manipulating the data for the users needs. 
+I've purposely kept the database small to display my prowess in manipulating the data for the users needs. 
 As needs evolve, and more people (especially sellers and schools) become involved, then a much more comprehensive database and a way to effectively display 
 these comics will be required.
-
-**Calendar**
-The lynchpin for this site is the ability for learners to meet in person, exchange comics and practice their language skills. 
-I propose a calendar of events where learners are are notified of events in their area.
 
 **Comic Page | Affiliate Links**
 Affiliate links which connect to either 3rd party vendors and/or booksellers who are registered and have a digital online store.

@@ -22,3 +22,5 @@ function flashMessage() {
     }, 3000);
 }
 flashMessage();
+
+M.toast({html: 'I am a toast!'})
