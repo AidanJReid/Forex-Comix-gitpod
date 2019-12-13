@@ -193,7 +193,15 @@ It also featured in the nav and footer sections of the page.
     - [Heroku](https://www.heroku.com) - Used for app hosting.
 - **Python**    
     - [Python 3.6.7](https://www.python.org/) - Used as the back-end programming language.
+- **MongoDB**
     - [MongoDB Atlas](https://www.mongodb.com/) - Storage of my online remote database.
+    I used five active collections in my ForexComix database.
+        - *DBComix*: Multiple documents, each displaying comic fields (language, genre, condition, difficulty, etc.)
+        - *Languages*: 8 Documents for each language.
+        - *Genre*: 6 Documents for each genre.
+        - *Condition*: 4 Documents for each state.
+        - *Difficulty*: 3 Documents for each level (Easy, Medium, Hard)
+- **PyMongoDB**
     - [PyMongo 3.9.0](https://api.mongodb.com/python/current/) - Python API for MongoDB.
 
 
