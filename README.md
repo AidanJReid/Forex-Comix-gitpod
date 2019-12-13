@@ -281,7 +281,7 @@ Deployed on [Heroku](https://www.heroku.com/) using the **master** branch on Git
     - [zap.png](https://pixabay.com/illustrations/zap-comic-comic-book-fight-1601678/)
     - [thewalkingdead.jpg](https://www.thepeoplespace.com/sites/default/files/content/thewalkingdead-2393903_1280.jpg)
     - [haddock.jpg](https://cdn.pixabay.com/photo/2018/12/23/09/30/adult-3890780_960_720.jpg)
-* Comic Database covers - the source for these have all been stated in the appropriate field (a requirement).
+* Comic Database covers - the sources for these have all been stated in the appropriate field (a requirement).
 To see these, the user can 'Edit' comic.
 
 ### Acknowledgements
