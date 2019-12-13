@@ -1,4 +1,4 @@
-# Forex Comix - The go-to resource for language learning for comic-book lovers
+# Forex Comix - Language learning for comic-book lovers
 
 Forex-Comix: Foreign Exchange Comics.
 
@@ -78,12 +78,12 @@ I wanted to adopt a comic-book style theme with this project. Somewhat 'blocky' 
 
 #### Colour Scheme
 
-- I wanted to use bright colours, particularly red and blue from [Materialize](https://materializecss.com/color.html) to enforce a 'Superhero' theme - think Superman. I purposely styled the buttons,
+I wanted to use bright colours, particularly red and blue from [Materialize](https://materializecss.com/color.html) to enforce a 'Superhero' theme - think Superman. I purposely styled the buttons,
 footer and header this way to ensure consistency and keep it simple.
 
 - `#00bcd4` (**cyan** - *primary colour* used in base.html for navbar and footer, and Database comic button for *edit*)
-- `#f44336` (**red** - *secondary colour* used in Database comic button for *view* and closely resembles head parallax)
-- `#fb8c00` (**orange darken-1** - *tertiary colour* used to *reset* database, and for affiliate link on specific comic page - designed to give it an *Amazon* look)
+- `#f44336` (**red** - *secondary colour* used in *Database* comic button for *view* and closely resembles head parallax)
+- `#fb8c00` (**orange darken-1** - *tertiary colour* used to *reset* Database, and for affiliate link on specific comic page - designed to give it an *Amazon* look)
 
 #### Icons
 
@@ -121,7 +121,6 @@ I used **Balsamiq for desktop** wireframes for two reasons:
 
 Sidenav pops out on small to medium devices (max-width 992 px) and contain the aforementioned nav links.
 
-
 ##### Parallax
 - Two parallexes *(paralli?)* run across the home page and subsequent user profile sections. Images fit the criteria required by Materialize to render correctly.
 Image references listed in the Media section at the bottom.
@@ -132,6 +131,9 @@ Their choice is of course dependent on their user profile and interest.
 
 ##### Modal
 - Displayed with the request for *deletion* of comic on the comic page.
+
+##### Collapsible form
+- On *Add Comic* section there is a simple Materialize collapsible form.
 
 ##### Calendar
 - Displayed in the **Learner** section, built with HTML and styled with CSS.
@@ -158,12 +160,12 @@ Currently, this is set on all comic pages to point to the Amazon site. It makes 
 therefore this would be something that either the *Bookseller*, and/or website administrator would input either on the *'Add Comic'* or *'Edit Comic'* section.
 Access and rights to use that feature would be enabled via their login rights - the affiliate addition only visible to the aforementioned parties.
 
-**Registration/Log-in**
+**Registration/Log-in** -
 Hugely important for future progress. The current ability for every visitor to add/delete comic could cause havoc to my database. 
-For the purposes of this project, I decided against setting up a reg page as it was not part of the requirements. 
-Suffice to say, it will be added in due course once Django is covered in our syllabus. 
+For the purposes of this project, I decided against setting up a registration page as it was not part of the requirements. 
+Suffice to say, it will be added once I cover **Django** in the course. 
 
-**Add Comic/Image**
+**Add Comic/Image** -
 I would like users to be able to upload comic images from their phone or device, instead of linking to an image source online. 
 
 ## Technologies Used
@@ -234,7 +236,7 @@ Current values are shown to the user on the edit comic page.
 user back to (updated) database page.
 
 **Filter Comic**
-- Despite it not being a requirement of the project, I felt it was important to enable a feature option. This is critical for students who have a particular language in mind.
+- Despite it not being a requirement of the project, I felt it was important to enable a filter option. This is critical for students who have a particular language in mind.
 This successfully works and the filter can be applied to either *Language* or *Genre*. Any more options would be overkill especially for such a small database.
 
 ### General
