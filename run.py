@@ -5,7 +5,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24) #Creates a random string to use as session key
+app.secret_key = os.urandom(24) # Creates a random string to use as session key
 
 # MongoDB URI / Assign Database
 
@@ -48,18 +48,16 @@ def addcomic():
     through to MongoDB
     """
     return render_template('addcomic.html', page_title='Add Comic', 
-    languages=mongo.db.Languages.find(),
-    condition=mongo.db.condition.find(),
-    genre=mongo.db.genre.find(),
-    difficulty=mongo.db.difficulty.find(),
-    description=mongo.db.description.find(),
-    owner=mongo.db.owner.find())
+                languages=mongo.db.Languages.find(),
+                condition=mongo.db.condition.find(),
+                genre=mongo.db.genre.find(),
+                difficulty=mongo.db.difficulty.find(),
+                description=mongo.db.description.find(),
+                owner=mongo.db.owner.find())
 
 @app.route('/insert_comic', methods=['POST'])
 def insert_comic():
-    """
-    Adds Comic to collection
-    """
+    """Adds Comic to collection"""
     DBComix = mongo.db.DBComix
     DBComix.insert_one(request.form.to_dict())
     if 'image_source' in request.form != "":
@@ -77,46 +75,48 @@ def database():
     languages=mongo.db.Languages.find()
     conditions=mongo.db.condition.find()
     difficultys=mongo.db.difficulty.find()
-    # This is true if form has been submitted.
+    """This is true if form has been submitted"""
     if request.method == "POST":
-        # Get restrictions provided by user through the form
-        # These are in the form of a MultiDict. Convert to normal dictionary.
+        """
+        Get restrictions provided by user through the form
+        These are in the form of a MultiDict. Convert to normal dictionary.
+        """
         filter_restrictions = request.form.to_dict()
         non_empty_restrictions = dict()
+        """if no filter applied"""
         if len(filter_restrictions) == 0:
             flash(Markup("D'Oh! You didn't select a filter option."))
             return redirect(url_for('database'))
 
+        """if filter applied"""
         if len(filter_restrictions) != 0:
             for restriction_key, restriction_value in filter_restrictions.items():
                 non_empty_restrictions[restriction_key] = restriction_value
             comics = mongo.db.DBComix.find(non_empty_restrictions)
-            return render_template('database.html',
-            DBComix=comics,
-            genres=genres,
-            languages=languages,
-            difficultys=difficultys,
-            conditions=conditions,
-            page_title='Database')
-    
+            return render_template('database.html', page_title='Database',
+                                DBComix=comics,
+                                genres=genres,
+                                languages=languages,
+                                difficultys=difficultys,
+                                conditions=conditions)
+
     else:
         comics = mongo.db.DBComix.find()
     
-    return render_template('database.html',
-    DBComix=comics,
-    genres=genres,
-    languages=languages,
-    difficultys=difficultys,
-    conditions=conditions,
-    page_title='Database')
+    return render_template('database.html', page_title='Database',
+                    DBComix=comics,
+                    genres=genres,
+                    languages=languages,
+                    difficultys=difficultys,
+                    conditions=conditions)
     
 # Specific Comic View
 
 @app.route('/get_comic/<DBComix_id>', methods=['GET'])
 def get_comic(DBComix_id):
     """
-    Data returned from drilldown to comic card,
-    returning specific comic fields.
+    Data returned from drilldown to comic card, 
+    returning specific comic fields
     """
     get_comic=mongo.db.DBComix.find_one({'_id': ObjectId(DBComix_id)})
     print(get_comic)
@@ -137,14 +137,13 @@ def edit_comic(DBComix_id):
     all_difficulty = mongo.db.difficulty.find()
     all_condition = mongo.db.condition.find()
     all_description = mongo.db.description.find()
-    return render_template('editcomic.html',
-            comic=the_comic, 
-            languages=all_languages, 
-            genres=all_genres, 
-            difficulty=all_difficulty, 
-            condition=all_condition, 
-            description=all_description, 
-        page_title='Edit Comic')
+    return render_template('editcomic.html', page_title='Edit Comic',
+                    comic=the_comic, 
+                    languages=all_languages, 
+                    genres=all_genres, 
+                    difficulty=all_difficulty, 
+                    condition=all_condition, 
+                    description=all_description)
         
 # Update Comic / Insert Section
 
@@ -172,7 +171,7 @@ def delete_comic(DBComix_id):
     """
     Clicking 'Delete' on Database comic card prompts
     immediate deletion of card and return to
-    database page.
+    database page
     """
     mongo.db.DBComix.remove({'_id': ObjectId(DBComix_id)})
     return redirect(url_for('database'))
@@ -182,4 +181,4 @@ if __name__ == '__main__':
             port=int(os.environ.get('PORT')),
             debug=True)
             
-# Debug=true should be removed on submission!
+"""Debug=true should be removed on submission!"""
