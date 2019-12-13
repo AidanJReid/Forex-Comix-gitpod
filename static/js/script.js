@@ -13,6 +13,9 @@ materializeInit();
 
 $(document).ready(function() {
             $('select').formSelect();
+            $("#modbtn").click(function() { 
+                $('.toast').toast('show'); 
+            }); 
         })
 
 function flashMessage() {
