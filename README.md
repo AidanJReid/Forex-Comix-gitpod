@@ -21,6 +21,11 @@ Forex-Comix: Foreign Exchange Comics.
     - [**Back-End Technologies**](#back-end-technologies)
 
 4. [**Testing**](#testing)
+    - [**User Journey**](#userjourney)
+    - [**Add | Edit | Delete a Comic**](#add-edit-delete-a-comic)
+    - [**General**](#general)
+    - [**Validators**](#validators)
+    - [**Issues**](#issues)
 
 5. [**Deployment**](#deployment)
 
@@ -30,9 +35,6 @@ Forex-Comix: Foreign Exchange Comics.
     - [**Acknowledgements**](#acknowledgements)
 
 ---
-
-
-
 
 ## UX
 
@@ -207,7 +209,7 @@ It also featured in the nav and footer sections of the page.
 
 ## Testing
 
-#### User Stories
+### User Journey
 
 Testing for each user scenario:
 
@@ -222,13 +224,13 @@ Testing for each user scenario:
 5. **User story 5**: Comic book fans who want to meet likeminded people and or others from different cultures/countries.
 | Meetings forthcoming as discussed above. As a reference, comic book fans will be served by site which displays various comic themes appealing to comic fans. :white_check_mark:
 
-**Add | Edit | Delete a Comic**
+### Add | Edit | Delete a Comic
 
 All the comics listed have been created by myself via mobile device (Samsung Galaxy A10) and on desktop. I have also shared the site with friends and family to test, both for responsiveness, and ease of use.
 The feedback I received revealed that the user experience, trialling as either a learner, seller or school was overwhelmingly positive.
 Adding, Editing and Deletion of various comics was successfully completed by multiple users.
 
-#### General
+### General
 
 Regular testing was conducted throughout the course of this project, especially before commits to Github.
 
@@ -236,11 +238,15 @@ Regular testing was conducted throughout the course of this project, especially 
 As well as Chrome, I also used Safari (12.0) and Firefox (68.0.2) which collectively successfully affirmed my project's responsiveness.
 To test responsiveness, the following mobiles were tested Galaxy S5, Pixel 2, Pixel 2 XL, iPhone 5/SE 6/7/8 Plus X, iPad and iPad Pro. All successfully passed in mobile responsiveness of the page.
 
-[HTML Checker]
+### Validators
 
-![HTML Tester]
+**HTML**
+- [HTML Checker](https://validator.w3.org/). Successfully passed the checker without triggering any errors.
 
-#### Issues
+**CSS**
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/). One error occurred but it pertained to the Materialize.min.css URI, in particular, claiming unknown vendor extensions for numerous elements.
+
+### Issues
 
 
 | Number | Issue            | Resolution   |
