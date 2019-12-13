@@ -7,6 +7,9 @@ Forex-Comix: Foreign Exchange Comics.
     - [**User Stories**](#user-stories)
     - [**Design**](#design)
         - [**Framework**](#framework)
+        - [**Colour Scheme**](#colour-scheme)
+        - [**Icons**](#icons)
+        - [**Typography**](#typography)
     - [**Wireframes**](#wireframes)
 
 2. [**Features**](#features)
@@ -71,6 +74,24 @@ I wanted to adopt a comic-book style theme with this project. Somewhat 'blocky' 
 - [Flask 1.1.1](http://flask.pocoo.org/)
     - Flask is a web framework that enable web applications builds which I was determined to use make backend coding easier.
 
+#### Colour Scheme
+
+- I wanted to use bright colours, particularly red and blue from [Materialize](https://materializecss.com/color.html) to enforce a 'Superhero' theme - think Superman. I purposely styled the buttons,
+footer and header this way to ensure consistency and keep it simple.
+
+- `#00bcd4` (**cyan** - *primary colour* used in base.html for navbar and footer, and Database comic button for *edit*)
+- `#f44336` (**red** - *secondary colour* used in Database comic button for *view* and closely resembles head parallax)
+- `#fb8c00` (**orange darken-1** - *tertiary colour* used to *reset* database, and for affiliate link on specific comic page - designed to give it an *Amazon* look)
+
+#### Icons
+
+- I used the [Materialize Icon](https://materializecss.com/icons.html) library for icons which appear on forms, the comic card in Database and the respective comic page.
+
+#### Typography
+
+- I imported the [Montserrat theme](https://fonts.google.com/specimen/Montserrat) from [Google Fonts](https://fonts.google.com/) for this project and have used it throughout the site.
+My motivation for choosing this theme is because I felt it was a little *softer* than the default, and more appropriate for the intended target audience.
+
 ### Wireframes
 
 I used **Balsamiq for desktop** wireframes for two reasons:
@@ -101,9 +122,7 @@ Sidenav pops out on small to medium devices (max-width 992 px) and contain the a
 
 ##### Parallax
 - Two parallexs run across the home page and subsequent user profile sections. Images fit the criteria required by Materialize to render correctly.
-
-##### Images
-- The comic explosions and images for Parallaxes were procured from various stock photo sites (references at the bottom).
+Image references listed in the Media section at the bottom.
 
 ##### Cards
 - Simple grid system allowed me to center align and effectively communicate to the user, the next steps based on their profile of Learner, School or Bookseller.
@@ -111,6 +130,9 @@ Their choice is of course dependent on their user profile and interest.
 
 ##### Modal
 - Displayed with the request for deletion of comic on the comic page.
+
+#### Calendar
+- Displayed in the Learner section, built with HTML and styled with CSS.
 
 ##### Toast
 - Materialize popup notification which I've used in the Learner section to reveal comic meetups.
@@ -228,8 +250,8 @@ To test responsiveness, the following mobiles were tested Galaxy S5, Pixel 2, Pi
 |  3  | Comics aren't being drilled into correctly  | Fixed w/ help from mentor  |
 |  4  | No filters applied to comics  | Finally achieved w/ help from mentor  |
 |  5  | Modal affecting deletion of chosen comic  | Changed button from it being on the card to it being on page - works fine  |
-|  6  | Stock image provided if none supplied  | TBC  |
-|  7  | Buttons on cards askew in iPad mode  | Changed grid layout to m4 to accommodate and changed card type  |
+|  6  | Buttons on cards askew in iPad mode  | Changed grid layout to m4 to accommodate and changed card type  |
+|  7  | Stock image provided if user doesn't upload one of their own  | TBC (For now, made it a required field)  |
 
 ## Deployment
 
@@ -261,6 +283,8 @@ Deployed on [Heroku](https://www.heroku.com/) using the **master** branch on Git
     - **PORT** : `8080`
 5. App should be successfully deployed to Heroku at this point.
 
+**N.B.** - I ran out of credits on AWS Cloud9 shortly before completion of this milestone which required the creation of a new repo, app and migration to Gitpod IDE.
+Please note original (incomplete) repos albeit with the majority of my commits on [Github](https://github.com/AidanJReid/Forex-Comix) and [Heroku](https://forex-comix.herokuapp.com/) app.
 
 ## Credits
 

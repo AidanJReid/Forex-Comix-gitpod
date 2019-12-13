@@ -62,7 +62,12 @@ def insert_comic():
     """
     DBComix = mongo.db.DBComix
     DBComix.insert_one(request.form.to_dict())
-    return redirect(url_for('database'))
+    if 'image_source' in request.form != "":
+        print("No Image")
+        return redirect(url_for('database'))
+    else:
+        print("No Image Else statement running")
+        return redirect(url_for('database'))
 
 # Comic Database Section
 
@@ -79,7 +84,6 @@ def database():
         filter_restrictions = request.form.to_dict()
         non_empty_restrictions = dict()
         if len(filter_restrictions) == 0:
-            print("0 values filled in")
             flash(Markup("D'Oh! You didn't select a filter option."))
             return redirect(url_for('database'))
 
@@ -87,7 +91,6 @@ def database():
             for restriction_key, restriction_value in filter_restrictions.items():
                 non_empty_restrictions[restriction_key] = restriction_value
             comics = mongo.db.DBComix.find(non_empty_restrictions)
-            print("Filter(s) applied", restriction_key, restriction_value, non_empty_restrictions)
             return render_template('database.html',
             DBComix=comics,
             genres=genres,

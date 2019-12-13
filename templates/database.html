@@ -43,33 +43,9 @@
 						<label for="genre">Genre</label>
 					</div>
 				</div>
-                <div class="row">
-					<div class="input-field col s12 m6">
-						<i class="material-icons prefix">language</i>
-						<select id="difficulty" name="difficulty">
-                                    <option value="" disabled selected>Comic Difficulty</option>
-                                    <!--Pass through languages prompting a selection from the drop down menu-->
-                                    {% for difficulty in difficultys %}
-                                        <option value="{{ difficulty.difficulty }}">{{ difficulty.difficulty }}</option>
-                                    {% endfor %}
-                                </select>
-						<label for="Difficulty">Difficulty</label>
-					</div>
-					<div class="input-field col s12 m6">
-						<i class="material-icons prefix">palette</i>
-						<select id="condition" name="condition" class="form-control validate">
-                                        <option value="" disabled selected>Filter Condition</option>
-                                        <!--Pass through genres prompting a selection from the drop down menu-->
-                                        {% for condition in conditions %}
-                                        <option value="{{ condition.condition }}">{{ condition.condition }}</option>
-                                    {% endfor %}
-                                    </select>
-						<label for="Condition">Condition</label>
-					</div>
-				</div>
 				<div class="row">
 					<div class="col s12 center-align">
-						<button class="btn-large waves-effect waves-light" type='submit'>Find Comic</button>
+						<button class="btn-large waves-effect waves-light cyan" type='submit'>Find Comic</button>
 					</div>
 				</div>
 			</form>
@@ -96,7 +72,7 @@
 						<div class="card-action">
 							<a class="waves-effect waves-light btn-small btn red left" type="submit"
 								href="{{url_for('get_comic', DBComix_id=comic._id)}}">View</a>
-							<a class="waves-effect waves-light btn-small btn blue right" type="submit"
+							<a class="waves-effect waves-light btn-small btn cyan right" type="submit"
 								href="{{url_for('edit_comic', DBComix_id=comic._id)}}">Edit</a>
 						</div>
 					</div>
@@ -122,7 +98,7 @@
 		</div>
 		<div class="row">
 			<div class="col s12 center-align">
-				<a href="{{ url_for('database') }}" class="btn-large waves-effect waves-light orange lighten-1">Reset Comics</a>
+				<a href="{{ url_for('database') }}" class="btn-large waves-effect waves-light orange darken-1">Reset Comics</a>
 			</div>
 		</div>
 	</div>
