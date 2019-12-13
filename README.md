@@ -22,7 +22,7 @@ Forex-Comix: Foreign Exchange Comics.
 
 4. [**Testing**](#testing)
     - [**User Journey**](#userjourney)
-    - [**Add | Edit | Delete a Comic**](#add-edit-delete-a-comic)
+    - [**CRUD**](#crud)
     - [**General**](#general)
     - [**Validators**](#validators)
     - [**Issues**](#issues)
@@ -142,22 +142,6 @@ Their choice is of course dependent on their user profile and interest.
 #### Footer
 - Used Parallax theme footer and simply indicated purpose of site, share my Github and linking to Facebook.
 
-## CRUD
-**Add Comic**
-- [**C**RUD] Add a new comic. Selecting this option in the navbar or at the bottom of the database will lead to a repsonsive form where a user can complete requisite fields.
-Changes are updated to MongoDB, and are immediately reflected in the Database section of the site.
-
-**View Comic**
-- [C**R**UD] Read/Review comic, either from the database page (display all), filter, or by drilling into the comic in question to find its appropriate page.
-
-**Edit/Update Comic**
-- [CR**U**D] Update a comic by clicking the relevant button on the card in the Database section. 
-Current values are shown to the user on the edit comic page.
-
-**Delete Comic**
-- [CRU**D**] Delete a comic. By clicking the 'Delete' button within the specific comic page, it prompts a modal which (when user wants to delete) will bring the 
-user back to (updated) database page.
-
 ### Features Left to Implement
 
 I have a strong desire to fully flesh out this micro-site to become a business. 
@@ -188,14 +172,18 @@ I would like users to be able to upload comic images from their phone or device,
 - [Gitpod](https://www.gitpod.io/) Used for the closing stages of my project because I ran out of credits on AWS.
 - [GitHub](https://github.com/) - Used to store code in a remote repository, hosting and for successful deployment of site.
 
-### Front-End Tech
-- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to structure pages, forms and associated content with user profiles as well as database. 
+### Front-End Technologies
+- **HTML5**
+    - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to structure pages, forms and associated content with user profiles as well as database. 
 It also featured in the nav and footer sections of the page.
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
-- [jQuery 3.4.1](https://code.jquery.com/jquery/) - Used to improve and simplify Javascript code.
-- [Materialize 1.0.0](https://materializecss.com/) - Used as the overall CSS design framework.
+- **CSS3**
+    - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
+- **JQuery**
+    - [jQuery 3.4.1](https://code.jquery.com/jquery/) - Used to improve and simplify Javascript code.
+- **Materialize**
+    - [Materialize 1.0.0](https://materializecss.com/) - Used as the overall CSS design framework.
 
-### Back-End
+### Back-End Technologies
 - **Flask**
     - [Flask 1.1.1](http://flask.pocoo.org/) - Used as a microframework.
     - [Jinja 2.10.3](http://jinja.pocoo.org/docs/2.10/) - Used as a template engine w/ Flask.
@@ -224,11 +212,26 @@ Testing for each user scenario:
 5. **User story 5**: Comic book fans who want to meet likeminded people and or others from different cultures/countries.
 | Meetings forthcoming as discussed above. As a reference, comic book fans will be served by site which displays various comic themes appealing to comic fans. :white_check_mark:
 
-### Add | Edit | Delete a Comic
+### CRUD
 
 All the comics listed have been created by myself via mobile device (Samsung Galaxy A10) and on desktop. I have also shared the site with friends and family to test, both for responsiveness, and ease of use.
 The feedback I received revealed that the user experience, trialling as either a learner, seller or school was overwhelmingly positive.
 Adding, Editing and Deletion of various comics was successfully completed by multiple users.
+
+**Add Comic**
+- [**C**RUD] Add a new comic. Selecting this option in the navbar or at the bottom of the database will lead to a repsonsive form where a user can complete requisite fields.
+Changes are updated to MongoDB, and are immediately reflected in the Database section of the site.
+
+**View Comic**
+- [C**R**UD] Read/Review comic, either from the database page (display all), filter, or by drilling into the comic in question to find its appropriate page.
+
+**Edit/Update Comic**
+- [CR**U**D] Update a comic by clicking the relevant button on the card in the Database section. 
+Current values are shown to the user on the edit comic page.
+
+**Delete Comic**
+- [CRU**D**] Delete a comic. By clicking the 'Delete' button within the specific comic page, it prompts a modal which (when user wants to delete) will bring the 
+user back to (updated) database page.
 
 ### General
 
