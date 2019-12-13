@@ -21,7 +21,7 @@ Forex-Comix: Foreign Exchange Comics.
     - [**Back-End Technologies**](#back-end-technologies)
 
 4. [**Testing**](#testing)
-    - [**User Journey**](#userjourney)
+    - [**User Journey**](#user-journey)
     - [**CRUD**](#crud)
     - [**General**](#general)
     - [**Validators**](#validators)
@@ -108,10 +108,10 @@ I used **Balsamiq for desktop** wireframes for two reasons:
 ### Existing features
 
 ##### Navbar
-- Used Materialize's **Parallax Template** for its ease of use and simple design.
-- **Sticky navbar** which makes navigation better for the user, especially on mobile.
-- Containing navigation items from left to right:
-  *  **Logo** - Simple logo which will act as link to home page on smaller devices.
+- Used Materialize's [Parallax Template](https://materializecss.com/templates/parallax-template/preview.html) for its ease of use and simple design.
+- Dployed a **Sticky navbar** which makes navigation better for the user, especially on mobile.
+- Navigation items from left to right:
+  *  **Logo** - Simple logo which will act as link to home page on smaller devices (centered on mobile).
   *  **Home** - Link back to the home page.
   *  **Learner** - Link to learner (students) section of website
   *  **Bookseller** - Link to the Bookseller section of site.
@@ -123,40 +123,40 @@ Sidenav pops out on small to medium devices (max-width 992 px) and contain the a
 
 
 ##### Parallax
-- Two parallexs run across the home page and subsequent user profile sections. Images fit the criteria required by Materialize to render correctly.
+- Two parallexes *(paralli?)* run across the home page and subsequent user profile sections. Images fit the criteria required by Materialize to render correctly.
 Image references listed in the Media section at the bottom.
 
 ##### Cards
-- Simple grid system allowed me to center align and effectively communicate to the user, the next steps based on their profile of Learner, School or Bookseller.
+- Simple grid system allowed me to center align and effectively communicate to the user, the next steps based on their profile of **Learner**, **School** or **Bookseller**.
 Their choice is of course dependent on their user profile and interest.
 
 ##### Modal
-- Displayed with the request for deletion of comic on the comic page.
+- Displayed with the request for *deletion* of comic on the comic page.
 
-#### Calendar
-- Displayed in the Learner section, built with HTML and styled with CSS.
+##### Calendar
+- Displayed in the **Learner** section, built with HTML and styled with CSS.
 
 ##### Toast
 - Materialize popup notification which I've used in the Learner section to reveal comic meetups.
 
-#### Footer
-- Used Parallax theme footer and simply indicated purpose of site, share my Github and linking to Facebook.
+##### Footer
+- Used Parallax theme footer and simply indicated purpose of site, share my *Github* and linking to *Facebook*.
 
 ### Features Left to Implement
 
 I have a strong desire to fully flesh out this micro-site to become a business. 
 To that end, there will need to be many more features to reward and ensure the customer journey and exchange is seamless.
 
-**Pagination**
+**Pagination** -
 I've purposely kept the database small to display my prowess in manipulating the data for the users needs. 
-As needs evolve, and more people (especially sellers and schools) become involved, then a much more comprehensive database and a way to effectively display 
+As needs evolve, and more people (especially *Booksellers* and *Schools*) become involved, then a much more comprehensive database and a way to effectively display 
 these comics will be required.
 
-**Comic Page | Affiliate Links**
-Affiliate links which connect to either 3rd party vendors and/or booksellers who are registered and have a digital online store.
+**Comic Page | Affiliate Links** -
+Affiliate links which connect to either 3rd party vendors and/or *Booksellers* who are registered and have a digital online store.
 Currently, this is set on all comic pages to point to the Amazon site. It makes no sense to make 'affiliate' a form field for users,
-therefore this would be something that either the comic bookseller, and/or website administrator would input either on the 'Add Comic' or 'Edit Comic' component.
-Access and rights to use that feature would be enabled via their login rights - the affiliate option only visible to the aforementioned parties.
+therefore this would be something that either the *Bookseller*, and/or website administrator would input either on the *'Add Comic'* or *'Edit Comic'* section.
+Access and rights to use that feature would be enabled via their login rights - the affiliate addition only visible to the aforementioned parties.
 
 **Registration/Log-in**
 Hugely important for future progress. The current ability for every visitor to add/delete comic could cause havoc to my database. 
@@ -168,15 +168,15 @@ I would like users to be able to upload comic images from their phone or device,
 
 ## Technologies Used
 
-- [AWSCloud9](https://aws.amazon.com/cloud9/) Primary IDE for coding and enabled me to connect and push to Github/Heroku as needed.
-- [Gitpod](https://www.gitpod.io/) Used for the closing stages of my project because I ran out of credits on AWS.
+- [AWSCloud9](https://aws.amazon.com/cloud9/) - Primary IDE for coding and enabled me to connect and push to Github/Heroku as needed.
+- [Gitpod](https://www.gitpod.io/) - Used for the closing stages of my project because I ran out of credits on AWS.
 - [GitHub](https://github.com/) - Used to store code in a remote repository, hosting and for successful deployment of site.
 
 ### Front-End Technologies
-- **HTML5**
+- **HTML**
     - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to structure pages, forms and associated content with user profiles as well as database. 
 It also featured in the nav and footer sections of the page.
-- **CSS3**
+- **CSS**
     - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
 - **JQuery**
     - [jQuery 3.4.1](https://code.jquery.com/jquery/) - Used to improve and simplify Javascript code.
@@ -232,6 +232,10 @@ Current values are shown to the user on the edit comic page.
 **Delete Comic**
 - [CRU**D**] Delete a comic. By clicking the 'Delete' button within the specific comic page, it prompts a modal which (when user wants to delete) will bring the 
 user back to (updated) database page.
+
+**Filter Comic**
+- Despite it not being a requirement of the project, I felt it was important to enable a feature option. This is critical for students who have a particular language in mind.
+This successfully works and the filter can be applied to either *Language* or *Genre*. Any more options would be overkill especially for such a small database.
 
 ### General
 
