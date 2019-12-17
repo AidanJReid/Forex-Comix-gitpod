@@ -275,6 +275,7 @@ To test responsiveness, the following mobiles were tested Galaxy S5, Pixel 2, Pi
 |  5  | Modal affecting deletion of chosen comic  | Changed button from it being on the card to it being on page - works fine  |
 |  6  | Buttons on cards askew in iPad mode  | Changed grid layout to m4 to accommodate and changed card type  |
 |  7  | Stock image provided if user doesn't upload one of their own  | TBC (For now, made it a required field)  |
+|  8  | CSS styling over-riding by Materialize framework  | To counter this, I made inline edits to HTML when custom stylesheet wouldn't apply changes  |
 
 ## Deployment
 
