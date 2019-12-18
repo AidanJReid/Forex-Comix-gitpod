@@ -41,13 +41,13 @@ Forex-Comix: Foreign Exchange Comics.
 ![Responsiveness Test](/static/assets/images/wireframe/screencap.JPG)
 
 This is the third milestone project of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development studies. 
-The objective for this project is to "*Create a web platorm to enable the exchange of foreign language comic books*", 
+The objective for this project is to "*Create a web platform to enable the exchange of foreign language comic books*", 
 using the **CRUD** operations of **C**reate, **R**ead, **U**pdate, and **D**elete.
 
-It is designed for three types of users (broadly defined as language learners, booksellers and schools/colleges). 
+It is designed for three types of users, broadly defined as language learners, booksellers and schools/colleges. 
 This particular project is underpinned by my own love of learning languages and comic books/graphic novels.
-In fact, I spent three years living in Colombia and picked up Spanish quite quickly through the aid of Los Muertos Vivientes (The Walking Dead), 
-which accelerated my language skills as well as introduced me to fellow nerds with whom I could practice with.
+In fact, I spent three years living in Colombia and picked up Spanish quite quickly through the aid of *Los Muertos Vivientes* (The Walking Dead), 
+which accelerated my language learning as well as introduced me to fellow nerds with whom I could practice.
 
 It is my conviction that language learning can be fun, and with the abundance of comics readily available, 
 they can introduce readers to various languages in a way that rote textbooks and stolid boring list tables cannot.
@@ -59,7 +59,7 @@ they can introduce readers to various languages in a way that rote textbooks and
 2. **User story 2**: A bookseller who wants to sell their comic books/raise awareness of their store (digital or physical).
 3. **User story 3**: A language school/college that wishes to supply novel language comics to the classroom and curriculum to attract and engage students.
 4. **User story 4**: Comic book fans in general who want to read widely.
-5. **User story 5**: Comic book fans who want to meet likeminded people and or others from different cultures/countries.
+5. **User story 5**: Comic book fans who want to meet likeminded people and/or others from different cultures/countries.
 
 ### Design
 
@@ -72,14 +72,14 @@ I wanted to adopt a comic-book style theme with this project. Somewhat 'blocky' 
     - Used Parallax theme because it closely resembled my wireframe mockup, had an elegant style and I wanted to try a new CSS framework having previously worked with Bootstrap.
     - A grid layout system was similary used in Materialize although there were a few differences in naming conventions expecially in making content responsive.
 - [jQuery 3.4.1](https://code.jquery.com/jquery/)
-    - I used the most recent version of jQuery for my Javascripts framework.
+    - I used the most recent version of jQuery for my Javascript framework.
 - [Flask 1.1.1](http://flask.pocoo.org/)
-    - Flask is a web framework that enable web applications builds which I was determined to use make backend coding easier.
+    - Flask is a web framework that enable web applications builds which I was determined to use to make backend coding easier.
 
 #### Colour Scheme
 
 I wanted to use bright colours, particularly red and blue from [Materialize](https://materializecss.com/color.html) to enforce a 'Superhero' theme - think Superman. I purposely styled the buttons,
-footer and header this way to ensure consistency and keep it simple.
+footer and header this way to ensure consistency keeping it simple.
 
 - `#00bcd4` (**cyan** - *primary colour* used in base.html for navbar and footer, and Database comic button for *edit*)
 - `#f44336` (**red** - *secondary colour* used in *Database* comic button for *view* and closely resembles head parallax)
@@ -109,7 +109,7 @@ I used **Balsamiq for desktop** wireframes for two reasons:
 
 ##### Navbar
 - Used Materialize's [Parallax Template](https://materializecss.com/templates/parallax-template/preview.html) for its ease of use and simple design.
-- Dployed a **Sticky navbar** which makes navigation better for the user, especially on mobile.
+- Deployed a **Sticky navbar** which makes navigation easier for the user, especially on mobile.
 - Navigation items from left to right:
   *  **Logo** - Simple logo which will act as link to home page on smaller devices (centered on mobile).
   *  **Home** - Link back to the home page.
@@ -123,11 +123,14 @@ Sidenav pops out on small to medium devices (max-width 992 px) and contain the a
 
 ##### Parallax
 - Two parallexes *(paralli?)* run across the home page and subsequent user profile sections. Images fit the criteria required by Materialize to render correctly.
-Image references listed in the Media section at the bottom.
+Image references listed in the Media section at the bottom of this document.
 
-##### Cards
+##### Cards (Home)
 - Simple grid system allowed me to center align and effectively communicate to the user, the next steps based on their profile of **Learner**, **School** or **Bookseller**.
 Their choice is of course dependent on their user profile and interest.
+
+##### Flash message
+- Displayed when no filter choice is selected.
 
 ##### Modal
 - Displayed with the request for *deletion* of comic on the comic page.
@@ -229,15 +232,15 @@ The feedback I received revealed that the user experience, trialling as either a
 Adding, Editing and Deletion of various comics was successfully completed by multiple users.
 
 **Add Comic**
-- [**C**RUD] Add a new comic. Selecting this option in the navbar or at the bottom of the database will lead to a repsonsive form where a user can complete requisite fields.
+- [**C**RUD] Add a new comic. Selecting this option in the navbar will lead to a responsive form where a user can complete requisite fields.
 Changes are updated to MongoDB, and are immediately reflected in the Database section of the site.
 
-**View Comic**
+**Read/View Comic**
 - [C**R**UD] Read/Review comic, either from the database page (display all), filter, or by drilling into the comic in question to find its appropriate page.
 
 **Edit/Update Comic**
 - [CR**U**D] Update a comic by clicking the relevant button on the card in the Database section. 
-Current values are shown to the user on the edit comic page.
+Current values are shown to the user on the edit comic page with simple edits easy to make.
 
 **Delete Comic**
 - [CRU**D**] Delete a comic. By clicking the 'Delete' button within the specific comic page, it prompts a modal which (when user wants to delete) will bring the 
@@ -245,7 +248,7 @@ user back to (updated) database page.
 
 **Filter Comic**
 - Despite it not being a requirement of the project, I felt it was important to enable a filter option. This is critical for students who have a particular language in mind.
-This successfully works and the filter can be applied to either *Language* or *Genre*. Any more options would be overkill especially for such a small database.
+This successfully works and the filter can be applied to either *Language* or *Genre*. Further options would be overkill at this stage, especially for such a small database.
 
 ### General
 
@@ -314,7 +317,7 @@ Please note original (incomplete) repos albeit with the majority of my commits o
 
 ### Content
 
-* I have taken liberties with the specification of the comics, instead wanting to demonstrate a range of fields allowing easy filter for users.
+* I have taken liberties with the specification of the comics, choosing to demonstrate a range of fields allowing easy filter for users.
 * The content of the various user profile sections is my own.
 
 ### Media
@@ -330,12 +333,12 @@ Please note original (incomplete) repos albeit with the majority of my commits o
     - [thewalkingdead.jpg](https://www.thepeoplespace.com/sites/default/files/content/thewalkingdead-2393903_1280.jpg)
     - [haddock.jpg](https://cdn.pixabay.com/photo/2018/12/23/09/30/adult-3890780_960_720.jpg)
 * Comic Database covers - the sources for these have all been stated in the appropriate field (a requirement).
-To see these, the user can 'Edit' comic.
+To see these, the user can 'Edit' each comic in turn.
 
 ### Acknowledgements
 
 * Modal Code via Andreas Molle on [JS Fiddle](https://jsfiddle.net/AndreasMolle/7f6hmgcf/13/).
 * CI Slack Channel where I've lurked for answers to many questions throughout this project, especially when it comes to the move to Gitpod
 and filtering of comics (Hat tip to ShaneMuir)
-* Inspiration for this README from [Travel Tim's project](https://github.com/TravelTimN/ci-milestone04-dcd)
+* Inspiration and structural format for this README from [Travel Tim's oustanding project](https://github.com/TravelTimN/ci-milestone04-dcd)
 * Brian Macharia, my CI mentor, for his support and patience.
