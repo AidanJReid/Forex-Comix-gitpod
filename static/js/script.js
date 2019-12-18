@@ -9,7 +9,9 @@ function materializeInit() {
 }
 materializeInit();
 
-// Initialize custom elements
+// CUSTOM ELEMENTS
+
+// Modal for event in Learner section
 
 $(document).ready(function() {
             $('select').formSelect();
@@ -17,6 +19,8 @@ $(document).ready(function() {
                 $('.toast').toast('show'); 
             }); 
         })
+
+// Flash message for no filter applied (Database page)
 
 function flashMessage() {
     $("#flash_message").addClass("show");

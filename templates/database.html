@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<!--Flashed messages to appear at the top of the viewport, below the nav-->
+<!--Flashed message to appear at the top of the viewport, below the nav-->
 {% with messages = get_flashed_messages() %} {% if messages %}
 <ul class="flashes center-align">
 	{% for message in messages %}
@@ -83,8 +83,7 @@
 						<ul>
 							<li><i class="tiny material-icons prefix">language</i> Language: {{ comic.language }}</li>
 							<li><i class="tiny material-icons prefix">palette</i> Genre: {{ comic.genre }}</li>
-							<li><i class="tiny material-icons prefix">terrain</i> Difficulty: {{ comic.difficulty }}
-							</li>
+							<li><i class="tiny material-icons prefix">terrain</i> Difficulty: {{ comic.difficulty }}</li>
 							<li><i class="tiny material-icons prefix">exposure</i> Condition: {{ comic.condition }}</li>
 							<li><i class="tiny material-icons prefix">face</i> Character: {{ comic.character }}</li>
 						</ul>

@@ -60,30 +60,24 @@ def insert_comic():
     """Adds Comic to collection"""
     DBComix = mongo.db.DBComix
     DBComix.insert_one(request.form.to_dict())
-    if 'image_source' in request.form != "":
-        print("No Image")
-        return redirect(url_for('database'))
-    else:
-        print("No Image Else statement running")
-        return redirect(url_for('database'))
+    return redirect(url_for('database'))
 
 # Comic Database Section
 
 @app.route('/database', methods=['GET', 'POST'])
 def database():
-    genres=mongo.db.genre.find()
-    languages=mongo.db.Languages.find()
-    conditions=mongo.db.condition.find()
-    difficultys=mongo.db.difficulty.find()
-    """This is true if form has been submitted"""
+    genres = mongo.db.genre.find()
+    languages = mongo.db.Languages.find()
+    conditions = mongo.db.condition.find()
+    difficultys = mongo.db.difficulty.find()
+
+    # This is true if form has been submitted 
     if request.method == "POST":
-        """
-        Get restrictions provided by user through the form
-        These are in the form of a MultiDict. Convert to normal dictionary.
-        """
+        # Get restrictions provided by user through the form
+        # These are in the form of a MultiDict. Convert to normal dictionary.
         filter_restrictions = request.form.to_dict()
         non_empty_restrictions = dict()
-        """if no filter applied"""
+        """if no filter applied - flash message"""
         if len(filter_restrictions) == 0:
             flash(Markup("D'Oh! You didn't select a filter option."))
             return redirect(url_for('database'))
@@ -137,31 +131,35 @@ def edit_comic(DBComix_id):
     all_difficulty = mongo.db.difficulty.find()
     all_condition = mongo.db.condition.find()
     all_description = mongo.db.description.find()
-    return render_template('editcomic.html', page_title='Edit Comic',
-                    comic=the_comic, 
-                    languages=all_languages, 
-                    genres=all_genres, 
-                    difficulty=all_difficulty, 
-                    condition=all_condition, 
-                    description=all_description)
-        
-# Update Comic / Insert Section
+    return render_template(
+        'editcomic.html', 
+        page_title='Edit Comic',
+        comic=the_comic, 
+        languages=all_languages, 
+        genres=all_genres, 
+        difficulty=all_difficulty, 
+        condition=all_condition, 
+        description=all_description
+    )
 
 @app.route('/update_comic/<DBComix_id>', methods=['POST'])
 def update_comic(DBComix_id):
+    """ Update Comic / Insert Section """
     DBComix = mongo.db.DBComix
-    DBComix.update({'_id': ObjectId(DBComix_id)},
-    {
-        'language': request.form.get('language'),
-        'genre': request.form.get('genre'),
-        'condition': request.form.get('condition'),
-        'difficulty': request.form.get('difficulty'),
-        'is_owner': request.form.get('is_owner'),
-        'description': request.form.get('description'),
-        'title': request.form.get('title'),
-        'character': request.form.get('character'),
-        'image_source': request.form.get('image_source')
-    })
+    DBComix.update(
+        {'_id': ObjectId(DBComix_id)},
+        {
+            'language': request.form.get('language'),
+            'genre': request.form.get('genre'),
+            'condition': request.form.get('condition'),
+            'difficulty': request.form.get('difficulty'),
+            'is_owner': request.form.get('is_owner'),
+            'description': request.form.get('description'),
+            'title': request.form.get('title'),
+            'character': request.form.get('character'),
+            'image_source': request.form.get('image_source')
+        }
+    )
     return redirect(url_for('database'))
 
 # Delete Comic
@@ -179,6 +177,4 @@ def delete_comic(DBComix_id):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
-            
-"""Debug=true should be removed on submission!"""
+            debug=False)
