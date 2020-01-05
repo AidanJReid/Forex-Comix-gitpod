@@ -38,6 +38,12 @@ def bookseller():
 def school():
     return render_template('school.html', page_title='School')
 
+# Blog Section
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html', page_title='Blog')
+
 # Add Comic Section
 
 @app.route('/addcomic')
