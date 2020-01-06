@@ -66,12 +66,12 @@ def insert_comic():
     """Adds Comic to collection"""
     DBComix = mongo.db.DBComix
     DBComix.insert_one(request.form.to_dict())
-    return redirect(url_for('database'))
+    return redirect(url_for('shop'))
 
-# Comic Database Section
+# Comic Shop Section
 
-@app.route('/database', methods=['GET', 'POST'])
-def database():
+@app.route('/shop', methods=['GET', 'POST'])
+def shop():
     genres = mongo.db.genre.find()
     languages = mongo.db.Languages.find()
     conditions = mongo.db.condition.find()
@@ -86,14 +86,14 @@ def database():
         """if no filter applied - flash message"""
         if len(filter_restrictions) == 0:
             flash(Markup("D'Oh! You didn't select a filter option."))
-            return redirect(url_for('database'))
+            return redirect(url_for('shop'))
 
         """if filter applied"""
         if len(filter_restrictions) != 0:
             for restriction_key, restriction_value in filter_restrictions.items():
                 non_empty_restrictions[restriction_key] = restriction_value
             comics = mongo.db.DBComix.find(non_empty_restrictions)
-            return render_template('database.html', page_title='Database',
+            return render_template('shop.html', page_title='Shop',
                                 DBComix=comics,
                                 genres=genres,
                                 languages=languages,
@@ -103,7 +103,7 @@ def database():
     else:
         comics = mongo.db.DBComix.find()
     
-    return render_template('database.html', page_title='Database',
+    return render_template('shop.html', page_title='Shop',
                     DBComix=comics,
                     genres=genres,
                     languages=languages,
@@ -127,9 +127,9 @@ def get_comic(DBComix_id):
 @app.route('/edit_comic/<DBComix_id>')
 def edit_comic(DBComix_id):
     """
-    Accessible from edit button on Database card
+    Accessible from edit button on Shop card
     Displays all pre-loaded values which can be iterated through
-    and submitted to update card on Database page.
+    and submitted to update card on Shop page.
     """
     the_comic = mongo.db.DBComix.find_one({'_id': ObjectId(DBComix_id)})
     all_languages = mongo.db.Languages.find() 
@@ -166,19 +166,19 @@ def update_comic(DBComix_id):
             'image_source': request.form.get('image_source')
         }
     )
-    return redirect(url_for('database'))
+    return redirect(url_for('shop'))
 
 # Delete Comic
 
 @app.route('/delete_comic/<DBComix_id>')
 def delete_comic(DBComix_id):
     """
-    Clicking 'Delete' on Database comic card prompts
+    Clicking 'Delete' on Shop comic card prompts
     immediate deletion of card and return to
-    database page
+    shop page
     """
     mongo.db.DBComix.remove({'_id': ObjectId(DBComix_id)})
-    return redirect(url_for('database'))
+    return redirect(url_for('shop'))
                 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
