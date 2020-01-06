@@ -1,6 +1,6 @@
-# Forex Comix - Language learning for comic-book lovers
+# Forex Comics - Language learning for comic-book lovers
 
-Forex-Comix: Foreign Exchange Comics.
+Forex Comics: Foreign Exchange Comics.
 
 ## Table of Contents
 1. [**UX**](#ux)
