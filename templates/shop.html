@@ -16,7 +16,7 @@
 	<p class="center-align">Click on the comic(s) below to read more, and choose whether to add it to your shopping cart.</p>
 	<div class="row">
 		<div class="col s12">
-			<form action="{{ url_for('database')}}" id="filter_form" method="POST">
+			<form action="{{ url_for('shop')}}" id="filter_form" method="POST">
 				<div class="row">
 					<div class="input-field col s12 m6">
 						<i class="material-icons prefix">language</i>
@@ -95,7 +95,7 @@
 		</div>
 		<div class="row">
 			<div class="col s12 center-align">
-				<a href="{{ url_for('database') }}" class="btn-large waves-effect waves-light orange darken-1">Reset Comics</a>
+				<a href="{{ url_for('shop') }}" class="btn-large waves-effect waves-light orange darken-1">Reset Comics</a>
 			</div>
 		</div>
 	</div>
