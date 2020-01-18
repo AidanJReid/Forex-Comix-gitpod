@@ -35,19 +35,6 @@
             </ul>
             <a href="https://www.amazon.co.uk/" class="waves-effect waves-light btn orange darken-1" target="_blank">Affiliate Link</a>
             <a href="{{ url_for('shop') }}" class="btn waves-effect waves-light cyan lighten-1">Back To Shop</a>
-            <a class="waves-effect waves-light btn view" onclick="$('#modal1').modal('open');">Delete Comic</a>
-
-            <!-- Modal Structure sourced from JSFiddle - see acknowledgements in README-->
-
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <h4>Delete?!</h4>
-                    <p>Are you out of your frickin' mind?</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="{{url_for('delete_comic', DBComix_id=comic._id)}}" class=" modal-action modal-close waves-effect waves-green btn-flat">Do it!</a>
-                </div>
-            </div>
         </div>
     </div>
 </div>

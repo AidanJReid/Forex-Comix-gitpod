@@ -165,6 +165,7 @@ Access and rights to use that feature would be enabled via their login rights - 
 
 **Registration/Log-in** -
 Hugely important for future progress. The current ability for every visitor to add/delete comic could cause havoc to my database. 
+NB. Post-Completion, this event DID actually take place - my db wiped. As a result, I've hidden my db details (as they were public on github before) and removeed the ability for users to delete! Lesson learnt!
 For the purposes of this project, I decided against setting up a registration page as it was not part of the requirements. 
 Suffice to say, it will be added once I cover **Django** in the course. 
 

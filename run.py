@@ -3,6 +3,9 @@ import os
 from flask import Flask, render_template, request, url_for, redirect, flash, Markup
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from os import path
+if path.exists('env.py'):
+    import env
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24) # Creates a random string to use as session key
@@ -10,7 +13,7 @@ app.secret_key = os.urandom(24) # Creates a random string to use as session key
 # MongoDB URI / Assign Database
 
 app.config["MONGO_DBNAME"] = 'ForexComix'
-app.config["MONGO_URI"] = 'mongodb+srv://natureboy:ttDFW9m3@myfirstcluster-fbekj.mongodb.net/ForexComix?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI','mongodb+srv://localhost')
 
 mongo = PyMongo(app)
 
@@ -170,15 +173,17 @@ def update_comic(DBComix_id):
 
 # Delete Comic
 
-@app.route('/delete_comic/<DBComix_id>')
-def delete_comic(DBComix_id):
-    """
-    Clicking 'Delete' on Shop comic card prompts
-    immediate deletion of card and return to
-    shop page
-    """
-    mongo.db.DBComix.remove({'_id': ObjectId(DBComix_id)})
-    return redirect(url_for('shop'))
+# @app.route('/delete_comic/<DBComix_id>')
+# def delete_comic(DBComix_id):
+#     """
+#     Clicking 'Delete' on Shop comic card prompts
+#     immediate deletion of card and return to
+#     shop page
+#     """
+#     mongo.db.DBComix.remove({'_id': ObjectId(DBComix_id)})
+#     return redirect(url_for('shop'))
                 
-if __name__ == '__main__':
-    app.run(host=os.getenv("IP", "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)
+# if __name__ == '__main__':
+#     app.run(host=os.environ.get('IP'),
+#             port=int(os.environ.get('PORT')),
+#             debug=False)
