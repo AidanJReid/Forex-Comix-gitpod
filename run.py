@@ -13,7 +13,7 @@ app.secret_key = os.urandom(24) # Creates a random string to use as session key
 # MongoDB URI / Assign Database
 
 app.config["MONGO_DBNAME"] = 'ForexComix'
-app.config["MONGO_URI"] = os.getenv('MONGO_URI','mongodb+srv://localhost')
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb+srv://')
 
 mongo = PyMongo(app)
 
@@ -173,17 +173,17 @@ def update_comic(DBComix_id):
 
 # Delete Comic
 
-# @app.route('/delete_comic/<DBComix_id>')
-# def delete_comic(DBComix_id):
-#     """
-#     Clicking 'Delete' on Shop comic card prompts
-#     immediate deletion of card and return to
-#     shop page
-#     """
-#     mongo.db.DBComix.remove({'_id': ObjectId(DBComix_id)})
-#     return redirect(url_for('shop'))
+@app.route('/delete_comic/<DBComix_id>')
+def delete_comic(DBComix_id):
+    """
+    Clicking 'Delete' on Shop comic card prompts
+    immediate deletion of card and return to
+    shop page
+    """
+    mongo.db.DBComix.remove({'_id': ObjectId(DBComix_id)})
+    return redirect(url_for('shop'))
                 
-# if __name__ == '__main__':
-#     app.run(host=os.environ.get('IP'),
-#             port=int(os.environ.get('PORT')),
-#             debug=False)
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP', "0.0.0.0"),
+            port=int(os.environ.get('PORT', "5000")),
+            debug=False)
