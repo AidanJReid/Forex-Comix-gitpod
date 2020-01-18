@@ -10,7 +10,7 @@ app.secret_key = os.urandom(24) # Creates a random string to use as session key
 # MongoDB URI / Assign Database
 
 app.config["MONGO_DBNAME"] = 'ForexComix'
-app.config["MONGO_URI"] = 'mongodb+srv://natureboy:ttDFW9m3@myfirstcluster-fbekj.mongodb.net/ForexComix?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb+srv://localhost')
 
 mongo = PyMongo(app)
 
