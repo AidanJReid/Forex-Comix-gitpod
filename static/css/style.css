@@ -39,6 +39,16 @@ p {
     width: 100%;
   }
 
+ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: normal;
+}
+
+ul li a:hover {
+    background-color: blue;
+}
 
 /* Calendar in Learner section - drawn from https://www.w3schools.com/howto/howto_css_calendar.asp */
 
