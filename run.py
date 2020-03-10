@@ -182,8 +182,9 @@ def delete_comic(DBComix_id):
     """
     mongo.db.DBComix.remove({'_id': ObjectId(DBComix_id)})
     return redirect(url_for('shop'))
-                
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
+            port=os.environ.get('PORT'),
             debug=True)
